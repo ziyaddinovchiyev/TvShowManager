@@ -1,0 +1,20 @@
+query FetchMoviesPaginated($after : String, $first: Int, $order: [MovieOrder!]) {
+    movies(
+        order: $order,
+        first: $first,
+        after: $after) {
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+        edges {
+            node {
+                id
+                title
+                releaseDate
+                seasons
+                createdAt
+            }
+        }
+    }
+}
